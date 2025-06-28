@@ -1,4 +1,4 @@
-paddlepaddle-gpu==2.5.2.post112
+paddlepaddle-gpu==2.6.2
 paddledet==2.6.0
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
