@@ -28,8 +28,11 @@ RUN pip install opencv-python-headless==4.8.1.78
 # Install PaddlePaddle GPU (most complex package)
 RUN pip install paddlepaddle-gpu==2.5.2 --index-url https://pypi.org/simple
 
-# Install PaddleDet last
-RUN pip install paddledet==2.5.0
+# Install additional dependencies for PaddleDet
+RUN pip install pyyaml cython pycocotools scipy
+
+# Install PaddleDet from git (more reliable than PyPI)
+RUN pip install git+https://github.com/PaddlePaddle/PaddleDetection.git@release/2.5
 
 COPY . .
 
