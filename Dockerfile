@@ -14,9 +14,22 @@ RUN apt-get update && apt-get install -y \
     libswscale-dev libv4l-dev libxvidcore-dev libx264-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
 RUN pip install --upgrade pip setuptools wheel
-RUN pip install -r requirements.txt
+
+# Install base dependencies first
+RUN pip install numpy==1.24.3 Pillow==10.0.1
+
+# Install web framework dependencies
+RUN pip install fastapi==0.104.1 uvicorn[standard]==0.24.0 python-multipart==0.0.6
+
+# Install OpenCV (headless version for Docker)
+RUN pip install opencv-python-headless==4.8.1.78
+
+# Install PaddlePaddle GPU (most complex package)
+RUN pip install paddlepaddle-gpu==2.5.2 --index-url https://pypi.org/simple
+
+# Install PaddleDet last
+RUN pip install paddledet==2.5.0
 
 COPY . .
 
