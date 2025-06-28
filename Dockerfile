@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y \
     python3-pip python3-dev python3-setuptools \
     build-essential cmake git wget unzip \
     libgl1-mesa-glx libglib2.0-0 libsm6 libxext6 libxrender-dev libgomp1 \
+    pkg-config libhdf5-dev libprotobuf-dev protobuf-compiler \
+    libjpeg-dev libpng-dev libtiff-dev libavcodec-dev libavformat-dev \
+    libswscale-dev libv4l-dev libxvidcore-dev libx264-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
