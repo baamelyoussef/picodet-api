@@ -1,0 +1,6 @@
+paddlepaddle-gpu==2.5.2.post112
+paddledet==2.6
+fastapi
+uvicorn
+python-multipart
+Pillow
